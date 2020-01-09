@@ -29,3 +29,15 @@ def num_sevens(n):
             return num_sevens(n//10) + 1
         else:
             return num_sevens(n//10)
+        
+def num_sevens_opt(n):
+    """
+    Does the same thing as num_sevens
+    but is less amount of code
+    """
+    if n%10 == 7:
+        return num_sevens_opt(n//10) + 1
+    elif n//10 > 0:
+        return num_sevens_opt(n//10)
+    else:
+        return 0
