@@ -17,7 +17,11 @@ def skip_add(n):
     ...       ['While', 'For'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    
+    if n == 0 or n==1:
+        return n
+    else:
+        return skip_add(n-2) + n
 
 def summation(n, term):
 
