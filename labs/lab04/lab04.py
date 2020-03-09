@@ -42,7 +42,10 @@ def summation(n, term):
     True
     """
     assert n >= 1
-    "*** YOUR CODE HERE ***"
+    if n==1:
+        return term(n)
+    else:
+        return summation(n-1,term) + term(n)
 
 def gcd(a, b):
     """Returns the greatest common divisor of a and b.
