@@ -130,4 +130,8 @@ def max_subseq(n, l):
     >>> max_subseq(12345, 1)
     5
     """
-    "*** YOUR CODE HERE ***"
+    if l == 0 or n==0:
+        return 0
+    last_digit = max_subseq(n//10,l-1)*10+n%10
+    no_last_digit = max_subseq(n//10,l)
+    return max(last_digit, no_last_digit)
