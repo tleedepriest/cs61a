@@ -60,7 +60,13 @@ def gcd(a, b):
     >>> gcd(40, 40)
     40
     """
-    "*** YOUR CODE HERE ***"
+    if b>a:
+        #assume a is always > than b
+        b, a = a, b
+    if a%b == 0:
+        return b
+    else:
+        return gcd(b, a%b)
 
 def paths(m, n):
     """Return the number of paths from one corner of an
