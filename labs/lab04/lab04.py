@@ -81,7 +81,9 @@ def paths(m, n):
     >>> paths(1, 157)
     1
     """
-    "*** YOUR CODE HERE ***"
+    if n==1 or m==1:
+        return 1
+    return paths(m-1,n) + paths(m,n-1)
 
 
 def max_subseq(n, l):
