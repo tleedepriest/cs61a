@@ -189,6 +189,52 @@ def check_mountain_number(n):
     return helper(n, is_increasing_l_to_r=True)
     
  
+def check_mountain_number_mine(n):
+    """
+    (b) Define the following function so that it properly 
+    identifies mountain numbers. A mountain number is a
+    number that either
+    
+    i. 
+    
+    has digits that strictly
+    
+    decrease from right to left OR 
+    
+    strictly
+    
+    increase from right to left
+    
+    ii. has digits that increase from right to left up to some 
+    point in the middle of the number 
+    (not necessarily the exact middle digit).
+
+    After reaching the maximum digit, the digits to the left 
+    of the maximum digit should strictly decrease.
+
+    >>> check_mountain_number(103)
+    False
+    >>> check_mountain_number(153)
+    True
+    >>> check_mountain_number(123456)
+    True
+    >>> check_mountain_number(2345986)
+    True
+    """
+    def helper(n, is_increasing_l_to_r, switched):
+        """
+        helper function to determine if mountain number
+        """
+        last_dig = n%10
+        adj_last = (n//10)%10
+
+        if last_dig < adj_last and is_increasing_l_to_r:
+            return helper(n//10, True, switched+0) 
+
+        if last_dig < adj_last and is not is_increasing_l_to_r:
+            return helper(n//10, False, switched+1)
+        return switched <= 1
+    return helper(n, is_increasing_l_to_r=True)
 if __name__ == "__main__":
     wwpd()
     print(even_weighted([1,2,3,4,5,6]))
@@ -199,3 +245,7 @@ if __name__ == "__main__":
     print(check_mountain_number(103))
     print(check_mountain_number(153))
     print(check_mountain_number(123456))
+    
+    print(check_mountain_number_mine(103))
+    print(check_mountain_number_mine(153))
+    print(check_mountain_number_mine(123456))
